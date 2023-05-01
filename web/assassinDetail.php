@@ -19,11 +19,12 @@ if (isset($id))
 {
     // Step 1: Load the customer and application records
     $sql = <<<SQL
-    SELECT *
+    SELECT * 
       FROM players
      WHERE pla_id = $id
     SQL;
 
+    
     $result = $conn->query($sql);
 
     $row = $result->fetch_assoc();
