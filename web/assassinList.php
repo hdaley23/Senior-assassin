@@ -46,7 +46,7 @@
     {
         echo '<tr class="align-middle" style="cursor:pointer" onclick="editPlayer(' . $row['pla_id'] . ')">';
         echo '<td>' . $row['pla_id'] . '</td>';
-        echo '<td>' . $row['pla_first_name'] . ' ' . $row['pla_last_name'] . '</td>';
+        echo '<td>' . $row['pla_name'] . '</td>';
         echo '<td>' . $row['pla_instagram'] . '</td>';
         echo '<td>' . $row['pla_status'] . '</td>';
         echo '</tr>';

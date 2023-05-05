@@ -12,9 +12,26 @@
 
 include('library.php');
 
+$plaId = '';
+
 $conn = get_database_connection();
 
-// Step 0: Delete the customer record TODO: Don't do this! See note above
+if (isset($id))
+{
+    // Step 1: Load the player records
+    $sql = <<<SQL
+    SELECT * 
+      FROM players
+     WHERE pla_id = $id
+    SQL;
+
+
+    $result = $conn->query($sql);
+
+    $row = $result->fetch_assoc();
+
+    $plaId = $row['pla_id'];
+}
 
 $sql = <<<SQL
 DELETE FROM players
@@ -25,17 +42,6 @@ if (!$conn->query($sql))
 {
     die('Error deleting the player record: ' . $conn->error);
 }
-
-// Step 2: Delete the children application_park_area records
-// $sql = <<<SQL
-// DELETE FROM assignments
-//  WHERE ast_pla_id = $id
-// SQL;
-
-// if (!$conn->query($sql))
-// {
-//     die('Error deleting application record: ' . $conn->error);
-// }
 
 $conn->close();
 

@@ -4,13 +4,14 @@ CREATE DATABASE `senior_assassin`;
 
 USE `senior_assassin`;
 
-CREATE TABLE `senior_assassin`.`players` (
-  `pla_id` INT NOT NULL AUTO_INCREMENT,
-  `pla_first_name` VARCHAR(45) NULL,
-  `pla_last_name` VARCHAR(45) NULL,
-  `pla_instagram` VARCHAR(45) NULL,
-  PRIMARY KEY (`pla_id`))
-;
+CREATE TABLE `players` (
+  `pla_id` int NOT NULL AUTO_INCREMENT,
+  `pla_name` varchar(70) NOT NULL,
+  `pla_instagram` varchar(45) NOT NULL,
+  `pla_status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`pla_id`)
+);
+
 
 CREATE TABLE `senior_assassin`.`assignments` (
   `asn_id` INT NOT NULL,

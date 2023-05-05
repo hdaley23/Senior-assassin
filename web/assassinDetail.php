@@ -8,8 +8,7 @@
  *************************************************************************************************/
 
 $plaId = '';
-$firstName = '';
-$lastName = '';
+$name = '';
 $instagram = '';
 $status = '';
 
@@ -24,14 +23,13 @@ if (isset($id))
      WHERE pla_id = $id
     SQL;
 
-    
+
     $result = $conn->query($sql);
 
     $row = $result->fetch_assoc();
 
     $plaId = $row['pla_id'];
-    $firstName = $row['pla_first_name'];
-    $lastName = $row['pla_last_name'];
+    $name = $row['pla_name'];
     $instagram = $row['pla_instagram'];
     $status = $row['pla_status'];
 }
@@ -49,12 +47,8 @@ if (isset($id))
 <form action="save.php" method="POST">
     <input type="hidden" name="plaId" value="<?php echo $plaId; ?>" />
     <div class="mb-3">
-        <label for="firstName" class="form-label">First name</label>
-        <input type="text" class="form-control" name="firstName" value="<?php echo $firstName; ?>">
-    </div>
-    <div class="mb-3">
-        <label for="lastName" class="form-label">Last name</label>
-        <input type="text" class="form-control" name="lastName" value="<?php echo $lastName; ?>">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
     </div>
     <div class="mb-3">
         <label for="instagram" class="form-label">Instagram</label>
@@ -78,6 +72,7 @@ if (isset($id))
 
 ?>
     <div>
+    <br>
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="index.php?content=list" class="btn btn-secondary" role="button">Cancel</a>
     </div>
