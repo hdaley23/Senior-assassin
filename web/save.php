@@ -7,8 +7,7 @@
  * be set:
  *
  * - plapId (this value will be empty if saving a new record)
- * - firstName
- * - lastName
+ * - name
  * - instagram
  * - status (this value will be set to playing if saving a new record)
  *************************************************************************************************/

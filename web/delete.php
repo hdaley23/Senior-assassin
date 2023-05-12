@@ -7,7 +7,6 @@
  * expects the 'id' request paramater to be set which represents the ID of the player to
  * delete.
  *
- * TODO: make it also delete the player's assignment after targets have been assigned 
  *************************************************************************************************/
 
 include('library.php');
