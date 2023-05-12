@@ -45,6 +45,12 @@ include('library.php');
                             <li class="nav-item">
                                 <a class="nav-link <?php print($content == 'round' ? 'active' : ''); ?>" href="index.php?content=round">Schedule of Rounds</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php print($content == 'rules' ? 'active' : ''); ?>" href="index.php?content=rules">Rules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php print($content == 'tracker' ? 'active' : ''); ?>" href="index.php?content=tracker">Player with the Most Kills</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

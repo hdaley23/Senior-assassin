@@ -19,10 +19,10 @@ $conn = get_database_connection();
 
 // Sanitize all input values to prevent SQL injection exploits
 $plaId = $conn->real_escape_string($plaId);
-$firstName = $conn->real_escape_string($firstName);
-$lastName = $conn->real_escape_string($lastName);
+$name = $conn->real_escape_string($name);
 $instagram = $conn->real_escape_string($instagram);
 $status = $conn->real_escape_string($status);
+$numberOfKills = $conn->real_escape_string($numberOfKills);
 
 // Determine if we need to create a new application or edit an existing application
 if (empty($plaId))
@@ -33,8 +33,8 @@ if (empty($plaId))
 
     // Step 1: Create the `player` record
     $sql = <<<SQL
-    INSERT INTO players (pla_first_name, pla_last_name, pla_instagram, pla_status)
-        VALUES ('$firstName', '$lastName', '$instagram', '$status')
+    INSERT INTO players (pla_name, pla_instagram, pla_status)
+        VALUES ('$name', '$instagram', '$status')
     SQL;
 
     if (!$conn->query($sql))
@@ -51,11 +51,11 @@ else
 
     // Step 1: Update the `player` record
     $sql = <<<SQL
-    UPDATE player
-       SET pla_first_name = '$firstName',
-           pla_last_name = '$lastName',
+    UPDATE players
+       SET pla_name = '$name',
            pla_instagram = '$instagram',
-           pla_status = '$status'
+           pla_status = '$status',
+           pla_number_of_kills = '$numberOfKills'
      WHERE pla_id = $plaId
     SQL;
 

@@ -11,6 +11,7 @@ $plaId = '';
 $name = '';
 $instagram = '';
 $status = '';
+$numberOfKills = '';
 
 $conn = get_database_connection();
 
@@ -32,6 +33,7 @@ if (isset($id))
     $name = $row['pla_name'];
     $instagram = $row['pla_instagram'];
     $status = $row['pla_status'];
+    $numberOfKills = $row['pla_number_of_kills'];
 }
 
 ?>
@@ -56,9 +58,12 @@ if (isset($id))
     </div>
     <div class="mb-3">
         <label for="status" class="form-label">Status</label>
-        <input type="text" class="form-control" name="states" value="<?php echo $status; ?>">
+        <input type="text" class="form-control" name="status" value="<?php echo $status; ?>">
     </div>
-
+    <div class="mb-3">
+        <label for="numberOfKills" class="form-label">Number of Kills</label>
+        <input type="number" class="form-control" name="numberOfKills" value="<?php echo $numberOfKills; ?>">
+    </div>
     <div>
     <br>
     </div>
